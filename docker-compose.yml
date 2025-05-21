@@ -1,0 +1,29 @@
+services:
+  app:
+    image: fireflyiii/core:latest
+    ports:
+      - "80:8080"
+    environment:
+      - APP_URL=https://${RENDER_EXTERNAL_HOSTNAME}
+      - SITE_OWNER=mdshoaibshakil001@gmail.com
+      - APP_KEY=BkyvOjmwxZCLGec7ttte1lKrMGhXPI1H
+      - TZ=Asia/Dhaka
+      - DB_CONNECTION=pgsql
+      - DB_HOST=${POSTGRES_HOST}
+      - DB_PORT=5432
+      - DB_DATABASE=firefly
+      - DB_USERNAME=fireflyuser
+      - DB_PASSWORD=StrongPassword123
+    volumes:
+      - firefly_iii_upload:/var/www/html/storage/upload
+  db:
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=fireflyuser
+      - POSTGRES_PASSWORD=StrongPassword123
+      - POSTGRES_DB=firefly
+    volumes:
+      - firefly_iii_db:/var/lib/postgresql/data
+volumes:
+  firefly_iii_upload:
+  firefly_iii_db:

@@ -12,14 +12,14 @@ services:
       - DB_HOST=${POSTGRES_HOST}
       - DB_PORT=5432
       - DB_DATABASE=firefly
-      - DB_USERNAME=Shakil11996
+      - DB_USERNAME=shakil11996
       - DB_PASSWORD=Sha10011996kiL@
     volumes:
       - firefly_iii_upload:/var/www/html/storage/upload
   db:
     image: postgres:latest
     environment:
-      - POSTGRES_USER=Shakil11996
+      - POSTGRES_USER=shakil11996
       - POSTGRES_PASSWORD=Sha10011996kiL@
       - POSTGRES_DB=firefly
     volumes:
